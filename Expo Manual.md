@@ -1,14 +1,25 @@
+# Expo Create amazing apps that run everywhere
 ﻿
 NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v16.3.0/)
 
-	> **npm i -g expo-cli**
+ `1`  Installation
+ 
+	 npm i -g expo-cli
+ `2` Create a new app
+ 
+	 npx create-expo-app my-app
 
-	> **npx create-expo-app my-app**
+`3` In Your Project
 
-	> **cd my-app**
+	 cd my-app
+	
 
-	> **npx expo start**
+`4` Start
 
+	 npx expo start
+
+
+`Command:`
 
     Press a │ open Android
     › Press w │ open web
@@ -26,19 +37,31 @@ More: [More Info Here](https://docs.expo.dev/get-started/create-a-new-app/)
 ---
 # Build App
 
+
+`1` Install the latest EAS CLI
+
 	npm install -g eas-cli
+
+`2` Log in to your Expo account
 
 	eas login
 
-	 > You can check whether you are logged in by running `eas whoami`.
-	 
-  	eas build:configure
+
+`3` Configure the project
+
+	eas build:configure
+
+`4` Run a build
 
 	eas build --platform android | ios | all
+
+`5` Wating a build
 
 	Wait for the build to complete
 
 
 # Submitting to the Apple App Store
-eas submit --platform android | ios | all
+
+	eas submit --platform android | ios | all
+	
 More: [More Infor](https://docs.expo.dev/submit/introduction/)
