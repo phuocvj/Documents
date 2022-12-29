@@ -1,13 +1,13 @@
 ﻿
 NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v16.3.0/)
 
-`1` > **npm i -g expo-cli**
+	> **npm i -g expo-cli**
 
-`2` > **npx create-expo-app my-app**
+	> **npx create-expo-app my-app**
 
-`3` > **cd my-app**
+	> **cd my-app**
 
-`4` > **npx expo start**
+	> **npx expo start**
 
 
     Press a │ open Android
@@ -26,17 +26,17 @@ More: [More Info Here](https://docs.expo.dev/get-started/create-a-new-app/)
 ---
 # Build App
 
-`1` npm install -g eas-cli
+	npm install -g eas-cli
 
-`2` eas login
+	eas login
 
 	 > You can check whether you are logged in by running `eas whoami`.
 	 
-`3` eas build:configure
+  	eas build:configure
 
-`4` eas build --platform android | ios | all
+	eas build --platform android | ios | all
 
-`5` Wait for the build to complete
+	Wait for the build to complete
 
 
 # Submitting to the Apple App Store
