@@ -36,7 +36,8 @@ If you are using a simulator or emulator, you may find the following Expo CLI ke
 -   Pressing  i  will open in an  [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/).
 -   Pressing  w  will open in a web browser. Expo supports all major browsers.
 
-More: [More Info Here](https://docs.expo.dev/get-started/create-a-new-app/)
+[More Info](https://docs.expo.dev/get-started/create-a-new-app/)
+
 ---
 # Build App
 
@@ -67,4 +68,4 @@ More: [More Info Here](https://docs.expo.dev/get-started/create-a-new-app/)
 
 	eas submit --platform android | ios | all
 	
-More: [More Infor](https://docs.expo.dev/submit/introduction/)
+[More Info](https://docs.expo.dev/submit/introduction/)
