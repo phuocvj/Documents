@@ -1,5 +1,6 @@
 ﻿
 NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v16.3.0/)
+
 `1` **npm i -g expo-cli**
 
 `2` **npx create-expo-app my-app**
@@ -25,12 +26,19 @@ If you are using a simulator or emulator, you may find the following Expo CLI ke
 More: [More Info Here](https://docs.expo.dev/get-started/create-a-new-app/)
 ---
 # Build App
+
 `1` npm install -g eas-cli
+
 `2` eas login
+
 	 > You can check whether you are logged in by running `eas whoami`.
+	 
 `3` eas build:configure
+
 `4` eas build --platform android | ios | all
+
 `5` Wait for the build to complete
+
 
 # Submitting to the Apple App Store
 eas submit --platform android | ios | all
