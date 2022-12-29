@@ -1,9 +1,13 @@
 ﻿
 NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v16.3.0/)
 `1` **npm i -g expo-cli**
+
 `2` **npx create-expo-app my-app**
+
 `3` **cd my-app**
+
 `4` **npx expo start**
+
 
     Press a │ open Android
     › Press w │ open web
