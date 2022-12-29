@@ -12,7 +12,6 @@ NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v1
 
     Press a │ open Android
     › Press w │ open web
-    
     › Press r │ reload app
     › Press m │ toggle menu
     › Press d │ show developer tools
