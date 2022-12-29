@@ -8,6 +8,8 @@ NodeJs Download: [Click Here To Download](https://nodejs.org/download/release/v1
  `2` Create a new app
  
 	 npx create-expo-app my-app
+	 
+`You can also use the --template option with the create-expo-app command. Run npx create-expo-app --template to see the list of available templates.`
 
 `3` In Your Project
 
