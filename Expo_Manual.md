@@ -63,7 +63,7 @@ If you are using a simulator or emulator, you may find the following Expo CLI ke
 
 	Wait for the build to complete here : https://expo.dev/
 
-
+---
 # Submitting to the Apple App Store
 
 	eas submit --platform android | ios | all
