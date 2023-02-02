@@ -38,6 +38,8 @@ app.use(function(req, res){
     res.status(404);
 });
 ```
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/API%20Folder.JPG)
+
 # Step 3. Try To Start
 `sudo npm i pm2 -g`
 # Step 4. Use pm2 to managed nodejs
