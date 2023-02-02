@@ -41,9 +41,13 @@ app.use(function(req, res){
 # Step 3. Try To Start
 `sudo npm i pm2 -g`
 # Step 4. Use pm2 to managed nodejs
+
 pm2 start: `pm2 start app.js`
+
 pm2 save into memory: `pm2 save`
+
 pm2 set startup: `pm2 startup ubuntu`
+
 --------------------
 ## Config Nginx
 # Step 1. Nginx Install
