@@ -7,6 +7,7 @@ Update all app to lastest version: `sudo apt update`
 Version checking: `node -v`
 
 # Step 2. npm Install
+
 `sudo apt install npm`
 
 --------------------
@@ -14,7 +15,9 @@ Version checking: `node -v`
 # Step 1. Express Install
 `npm install express`
 # Step 2. Create App.js file
+
 `sudo touch app.js`
+
 ```
 // Create express app
 var express = require("express")
