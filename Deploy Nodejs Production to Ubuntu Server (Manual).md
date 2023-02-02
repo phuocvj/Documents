@@ -78,4 +78,8 @@ server {
 `sudo ln -s /etc/nginx/sites-available/nodeApp /etc/nginx/sites-enabled`
 
 #### Visit http://172.30.10.120/ and your application should work fine. Happy coding!
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/Serverlive.JPG)
+
+#### PM2 Management Server Status
+
 ![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/PM2_server_managed.JPG)
