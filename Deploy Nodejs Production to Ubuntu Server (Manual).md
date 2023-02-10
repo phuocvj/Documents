@@ -83,7 +83,7 @@ server {
         }
 }
 ```
-### Activate this configuration using the command below:
+### Activate this configuration using the command below (In Root terminal):
 `sudo ln -s /etc/nginx/sites-available/nodeApp /etc/nginx/sites-enabled`
 
 #### Visit http://172.30.10.120/ and your application should work fine. Happy coding!
@@ -92,3 +92,47 @@ server {
 #### PM2 Management Server Status
 
 ![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/PM2_server_managed.JPG)
+
+--------------------
+# How to deploy a ReactJS App in production to Ubuntu Server And Deploy Build Folder.
+# Step 1. Create New File Is "Your-Site-Name". For Example see image below:
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/1.JPG)
+```
+server{
+listen 3001;
+server_name _;
+   root /var/www/Your-Site-Name/html;
+   index index.html index.htm;
+   location / {
+   #try_files $uri /index.html =404;
+   }
+}
+```
+# Step 2. Run below command for Site-Enabled:
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/2.JPG)
+
+# Step 3. Check Site-Enabled folder:
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/3.JPG)
+
+# Step 4. Create folder with name is Your-Site-Name (GAWebsite) follow the path:
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/4.JPG)
+
+# Step 5. Copy all file inside BUILD folder to HTML folder: 
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/5.JPG)
+
+## If your operating system is window then do this: 
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/6.JPG)
+
+# Step 6. Restart NginX
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/7.JPG)
+
+# Happy Hacking!!!
+
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/8.JPG)
