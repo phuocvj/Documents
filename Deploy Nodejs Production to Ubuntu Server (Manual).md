@@ -111,6 +111,7 @@ server_name _;
 ```
 # Step 2. Run below command for Site-Enabled:
 
+`sudo ln -s /etc/nginx/sites-available/General-Affairs-System /etc/nginx/sites-enabled`
 ![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/2.JPG)
 
 # Step 3. Check Site-Enabled folder:
