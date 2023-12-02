@@ -257,7 +257,7 @@ server_name _;
 # Login Event from UI call Login API
 
 ```
-fetch(http://172.30.10.120/LMES/PKG_GA_SYSTEM_REQUEST.USER_LOGIN_SELECT, {
+fetch("http://172.30.10.120/LMES/PKG_GA_SYSTEM_REQUEST.USER_LOGIN_SELECT", {
       method: "POST",
       mode: "cors",
       dataType: "json",
