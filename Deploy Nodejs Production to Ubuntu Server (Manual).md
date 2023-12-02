@@ -279,3 +279,5 @@ fetch("http://172.30.10.120/LMES/PKG_GA_SYSTEM_REQUEST.USER_LOGIN_SELECT", {
 	})
  	});
 ```
+# API Call and response json result
+![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/TEST_API.JPG)
