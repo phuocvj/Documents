@@ -21,7 +21,34 @@ Version checking: `node -v`
 ```
 // Create express app
 var express = require("express")
+var oracledb = require("oracledb");
 var app = express()
+var router = express.Router();
+oracledb.autoCommit = true;
+var LMESConnection = {
+  user: "LMES",
+  password: "LMES",
+  connectString: "172.30.10.49:1521/LMES",
+};
+
+// oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+var SEPHIROTHConnection = {
+  user: "SEPHIROTH",
+  password: "SEPHIROTH",
+  connectionString: "211.54.128.21:1521/VJEDB",
+};
+
+var HUBICConnection = {
+  user: "HUBICVJ",
+  password: "HUBICVJ",
+  connectionString: "211.54.128.21:1521/HUBICVJ",
+};
+
+var CMMSConnection = {
+  user: "CMMS",
+  password: "CMMS",
+  connectionString: "211.54.128.21:1521/VJCMMS",
+};
 
 // Server port
 var HTTP_PORT = 3000 
@@ -34,6 +61,92 @@ app.get("/", (req, res, next) => {
     res.json({"message":"Ok"})
 });
 
+app.get("/:DB/:query/:type").post(function (request, response) {
+  console.log("POST");
+  var Connection = "";
+  var RequestType = "";
+  switch (request.url.split("/")[1]) {
+    case "SEPHIROTH":
+      Connection = SEPHIROTHConnection;
+      break;
+    case "LMES":
+      Connection = LMESConnection;
+      break;
+    case "HUBIC":
+      Connection = HUBICConnection;
+      break;
+    case "CMMS":
+      Connection = CMMSConnection;
+      break;
+  }
+
+  RequestType = request.url.split("/")[3];
+
+  console.log("------------------------------------------------");
+  oracledb.fetchAsString = [oracledb.CLOB];
+  oracledb.fetchAsBuffer = [oracledb.BLOB];
+  oracledb.getConnection(Connection, async function (err, connection) {
+    if (err) {
+      console.error(err.message);
+      response.status(500).send("Error connecting to DB");
+      return;
+    }
+    console.log("Connection Successful");
+
+    var parameterDb = "";
+    var paramValues = "";
+    var paramOptions = "";
+    Object.keys(request.body).forEach((key) => {
+      parameterDb += `,:${key}`;
+    });
+    parameterDb = parameterDb.replace(/,+/, "");
+    var cur = { OUT_CURSOR: { type: oracledb.CURSOR, dir: oracledb.BIND_OUT } };
+    if (RequestType === "SELECT") {
+      paramValues = { ...request.body, ...cur };
+    } else {
+      paramValues = { ...request.body };
+    }
+    //console.log(paramValues);
+    console.log(paramValues);
+    var sql = `BEGIN
+                    ${request.params.query}(${parameterDb});
+                  END;`;
+    console.log(paramOptions);
+    connection.execute(
+      sql,
+      paramValues,
+      { outFormat: oracledb.OBJECT },
+      async function (err, result) {
+        if (err) {
+          console.error(err.message);
+          response.status(500).send(
+            JSON.stringify({
+              Result: "FAILED",
+              RequestURL: request.url,
+              Parameters: paramValues,
+            })
+          );
+          doRelease(connection);
+          return;
+        }
+        if (RequestType === "SELECT") {
+          var resultSet = result.outBinds.OUT_CURSOR;
+          const rows = await resultSet.getRows();
+          await resultSet.close();
+          response.send(rows);
+        } else {
+          response.send({
+            Result: "OK",
+            RequestURL: request.url,
+            Parameters: paramValues,
+          });
+        }
+        doRelease(connection);
+      }
+    );
+  });
+});
+
 // Insert here other API endpoints
 
 // Default response for any other request
@@ -41,6 +154,9 @@ app.use(function(req, res){
     res.status(404);
 });
 ```
+
+
+
 ![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/API%20Folder.JPG)
 
 # Step 3. Try To Start
@@ -137,3 +253,29 @@ server_name _;
 # Happy Hacking!!!
 
 ![markdown](https://raw.githubusercontent.com/phuocvj/Documents/main/Images/DeployUbuntu/nginx/8.JPG)
+
+#Login Event from UI call Login API
+
+```
+fetch(http://172.30.10.120/LMES/PKG_GA_SYSTEM_REQUEST.USER_LOGIN_SELECT, {
+      method: "POST",
+      mode: "cors",
+      dataType: "json",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ARG_TYPE: "Q",
+        ARG_EMPID: data, //user name
+        ARG_PASSWORD: base64_encode(data1), //password
+        OUT_CURSOR: "",
+      }),
+      signal: Timeout(5).signal,
+    })
+      .then((response) => {
+        response.json().then(async (result) => {
+          if (result.length > 0) {
+	   }
+	})
+ 	});
+```
